@@ -5,7 +5,10 @@
 @endsection
 
 @section('botones')
-    <a href="{{ route('recetas.index') }}" class="btn btn-primary mr-2 text-white">Volver</a>
+    <a href="{{ route('recetas.index') }}" class="btn btn-outline-primary mr-2 text-uppercase font-weight-bold">
+        <svg class="icono" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"></path></svg>
+        Volver
+    </a>
 @endsection
 
 @section('content')
@@ -47,9 +50,9 @@
                     >
                         <option value="">-- Seleccione -</option>
                         @foreach ($categorias as $categoria)
-                            <option 
-                                value="{{ $categoria->id }}" 
-                                {{ $receta->categoria_id == $categoria->id ? 'selected' : '' }} 
+                            <option
+                                value="{{ $categoria->id }}"
+                                {{ $receta->categoria_id == $categoria->id ? 'selected' : '' }}
                             >{{$categoria->nombre}}</option>
                         @endforeach
                     </select>
@@ -64,7 +67,7 @@
                 <div class="form-group mt-3">
                     <label for="preparacion">Preparación</label>
                     <input id="preparacion" type="hidden" name="preparacion" value="{{ $receta->preparacion }}">
-                    <trix-editor 
+                    <trix-editor
                         class="form-control @error('preparacion') is-invalid @enderror "
                         input="preparacion"
                     ></trix-editor>
@@ -79,7 +82,7 @@
                 <div class="form-group mt-3">
                     <label for="ingredientes">Ingredientes</label>
                     <input id="ingredientes" type="hidden" name="ingredientes" value="{{ $receta->ingredientes }}">
-                    <trix-editor 
+                    <trix-editor
                         class="form-control @error('ingredientes') is-invalid @enderror "
                         input="ingredientes"></trix-editor>
 
@@ -93,9 +96,9 @@
                 <div class="form-group mt-3">
                     <label for="imagen">Elige la imagen</label>
 
-                    <input 
-                        id="imagen" 
-                        type="file" 
+                    <input
+                        id="imagen"
+                        type="file"
                         class="form-control @error('imagen') is-invalid @enderror"
                         name="imagen"
                     >

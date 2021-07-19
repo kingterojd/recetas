@@ -26,7 +26,7 @@ class InicioController extends Controller
 
         // Agrupar las recetas por categoria
         $recetas = [];
-       
+
         foreach($categorias as $categoria) {
             $recetas[ Str::slug( $categoria->nombre ) ][] = Receta::where('categoria_id', $categoria->id )->take(3)->get();
         }
